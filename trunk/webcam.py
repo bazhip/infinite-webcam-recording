@@ -65,7 +65,7 @@ while monitor:
     
         last_capture_time = current_capture_time
         filename = current_directory + "/" + str(shots % max_shots).zfill(3) + ".jpg"
-        cam.saveSnapshot(filename, quality=80, timestamp=0)
+        cam.saveSnapshot(filename, quality=80, timestamp=3)
         shots += 1
     camshot = pygame.image.frombuffer(camshot.tostring(), res, "RGB")
     screen.blit(camshot, (0,0))

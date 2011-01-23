@@ -49,12 +49,17 @@ while monitor:
             if event.key == pygame.K_w: cam.displayCaptureFilterProperties()
             if event.key == pygame.K_ESCAPE: pygame.event.post(pygame.event.Event(QUIT,))
             if event.key == pygame.K_s:
+                output_filename = current_directory + ".mp4"
                 command_line = "ffmpeg.exe -r " + str(frames_per_second) + \
-                               " -i " + current_directory + "/%03d.jpg " + \
-                               current_directory + ".mp4"
+                               " -i " + os.path.join(current_directory, "%03d.jpg ") + \
+                               output_filename
+                print("Exporting video...")
+                print("\t" + command_line)
                 subprocess.call(command_line)
+                print("Video exported to " + os.path.join(os.getcwd(), output_filename))
                 current_directory = str(time.time())
                 snapshots_persisted = True
+                shots = 0
         
     current_capture_time = time.time()
     capture_time_diff = current_capture_time - last_capture_time

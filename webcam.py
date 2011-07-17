@@ -26,7 +26,7 @@ def disp(phrase,loc):
 brightness = 1.0
 contrast = 1.0
 max_duration_in_seconds = 24 * 60 * 60
-frames_per_second = 10
+frames_per_second = 1
 shots_every_second = 1. / frames_per_second
 shots = 0
 max_shots = max_duration_in_seconds * frames_per_second
